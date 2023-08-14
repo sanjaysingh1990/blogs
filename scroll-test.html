@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* Add some styling for demonstration */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#section1">Section 1</a>
+        <a href="#section2">Section 2</a>
+        <a href="#section3">Section 3</a>
+    </nav>
+
+    <section id="section1">
+        <h1>Section 1</h1>
+    </section>
+
+    <section id="section2">
+        <h1>Section 2</h1>
+    </section>
+
+    <section id="section3">
+        <h1>Section 3</h1>
+    </section>
+
+    <script>
+        // JavaScript to handle smooth scrolling on link click
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default anchor behavior
+                const targetId = link.getAttribute('href'); // Get the target section ID
+                const targetSection = document.querySelector(targetId); // Find the target section
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth' // Use smooth scrolling
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
