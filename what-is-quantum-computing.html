@@ -14,6 +14,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <!-- Main CSS -->
     <link href="./assets/css/main.css" rel="stylesheet" />
+
+    <!-- Floating button CSS -->
+    <link href="./assets/css/floating-button.css" rel="stylesheet" />
+
     <meta name="google-site-verification" content="BmL_ZF5jbU0arPaoODbQihliailZx7HXpCxnmEsEqMw" />
 
     <style>
@@ -104,7 +108,9 @@ HEADER
     </div>
     <!-- End Header -->
 
+    <!-- Responsive ads section -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7966070414985050" crossorigin="anonymous"></script>
+
     <!--------------------------------------
 MAIN
 --------------------------------------->
@@ -121,6 +127,7 @@ MAIN
                             <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
                             <a class="a2a_button_facebook"></a>
                             <a class="a2a_button_twitter"></a>
+
                         </div>
                         <script async src="https://static.addtoany.com/menu/page.js"></script>
                         <!-- AddToAny END -->
@@ -132,7 +139,7 @@ MAIN
 
 
 
-                    <h3>Table of content</h3>
+                    <h3 id="scrollTarget">Table of content</h3>
 
 
                     <ul>
@@ -1009,6 +1016,11 @@ FOOTER
     </div>
     <!-- End Footer -->
 
+    <!-- Floating button -->
+    <button class="circular-button" onclick="scrollToElement()">
+        <i class="fas fa-caret-up"></i>
+      </button>
+
 
     <!--------------------------------------
 JAVASCRIPTS
@@ -1032,6 +1044,17 @@ JAVASCRIPTS
                 }
             });
         });
+    </script>
+
+    <script>
+        function scrollToElement() {
+            const targetElement = document.getElementById('scrollTarget');
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
     </script>
 </body>
 
