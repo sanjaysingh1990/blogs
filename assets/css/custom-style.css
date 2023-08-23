@@ -1,0 +1,7 @@
+@charset "UTF-8";
+.center-image {
+    display: flex;
+    justify-content: center;
+    /* Horizontal centering */
+    align-items: center;
+}
