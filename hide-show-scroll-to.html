@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #hiddenElement {
+            display: none;
+            /* Initially hide the element */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Scroll down to see the target element -->
+    <div style="height: 800px;"></div>
+    <div id="targetElement">Target Element</div>
+    <div style="height: 800px;"></div>
+    <div id="hiddenElement">Scroll to Target</div>
+
+    <script>
+        var targetElement = document.getElementById("targetElement");
+        var hiddenElement = document.getElementById("hiddenElement");
+
+        // Add a scroll event listener
+        window.addEventListener("scroll", function() {
+            var targetPosition = targetElement.getBoundingClientRect();
+
+            // Check if the top of the target element is visible in the viewport
+            if (targetPosition.top >= 0 && targetPosition.top <= window.innerHeight) {
+                hiddenElement.style.display = "block"; // Show the element
+            } else {
+                hiddenElement.style.display = "none"; // Hide the element
+            }
+        });
+
+        // Add a click event listener to the hidden element
+        hiddenElement.addEventListener("click", function() {
+            // Scroll to the target element when the element is clicked
+            targetElement.scrollIntoView({
+                behavior: "smooth"
+            });
+        });
+    </script>
+
+</body>
+
+</html>

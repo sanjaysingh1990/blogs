@@ -1078,7 +1078,7 @@ FOOTER
     <!-- End Footer -->
 
     <!-- Floating button -->
-    <button class="circular-button" onclick="scrollToElement()">
+    <button id="hiddenElement" class="circular-button" style="display: none;" onclick="scrollToElement()">
         <i class="fas fa-caret-up"></i>
       </button>
 
@@ -1109,13 +1109,33 @@ JAVASCRIPTS
 
     <script>
         function scrollToElement() {
+
             const targetElement = document.getElementById('scrollTarget');
             if (targetElement) {
+
                 targetElement.scrollIntoView({
                     behavior: 'smooth'
                 });
+
             }
         }
+    </script>
+
+    <script>
+        var targetElement = document.getElementById("scrollTarget");
+        var hiddenElement = document.getElementById("hiddenElement");
+
+        // Add a scroll event listener
+        window.addEventListener("scroll", function() {
+            var targetPosition = targetElement.getBoundingClientRect();
+
+            // Check if the top of the target element is visible in the viewport
+            if (targetPosition.top >= 0) {
+                hiddenElement.style.display = "none"; // Show the element
+            } else {
+                hiddenElement.style.display = "block"; // Hide the element
+            }
+        });
     </script>
 
 </body>
